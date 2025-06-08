@@ -1,0 +1,518 @@
+/* =================================================================== */
+/*                          MIDAS WEBSITE CSS                          */
+/* =================================================================== */
+
+/* GLOBAL STYLES & FONT IMPORT */
+:root {
+    --primary-yellow: #FFF315; /* Warna dari acuan */
+    --light-blue: #AFE7F4; /* Warna dari acuan */
+    --dark-text: #1F0A0A; /* Warna dari acuan */
+    --light-grey: #D9D9D9; /* Warna dari acuan */
+    --white: #FFFFFF;
+    --black: #000000;
+    --tokopedia-green: #4A9D46; /* Warna dari acuan */
+    --tiktok-red: #F93055; /* Warna dari acuan */
+
+    /* Font Families dari acuan */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Rasa', serif; /* Font untuk judul italic seperti "Features" */
+}
+
+/* Mengimpor Google Fonts yang dibutuhkan */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Rasa:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--white);
+    color: var(--black);
+    /* Penting agar posisi elemen absolut dari acuan bekerja dengan baik */
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px; /* Padding kiri-kanan sesuai acuan (77px dibulatkan) */
+}
+
+
+/* ================================================== */
+/*                      HEADER                        */
+/* ================================================== */
+header {
+    padding-top: 53px; /* Jarak atas dari acuan */
+}
+
+.logo {
+    font-weight: 700;
+    font-style: bold;
+    font-size: 1.5rem; /* 25px */
+    text-align: center; /* Sejajar dengan sisi kanan container */
+}
+
+
+/* ================================================== */
+/*                    HERO SECTION                      */
+/* ================================================== */
+#hero {
+    padding: 40px 0 100px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Kolom Teks Kiri */
+.hero-text {
+    flex-basis: 582px;
+    flex-shrink: 0;
+}
+
+.hero-text h1 {
+    font-weight: 700;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-text h1 span:first-child {
+    font-size: 5.625rem; /* 90px */
+}
+
+.hero-text h1 span:last-child {
+    font-size: 5rem; /* 80px */
+}
+
+.hero-text p {
+    margin: 40px 0 60px;
+    max-width: 582px;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.6;
+    color: var(--black);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 22px;
+}
+
+.btn {
+    width: 194px;
+    height: 58px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 1.25rem; /* 20px */
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s ease;
+}
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-dark {
+    background-color: var(--dark-text);
+    color: var(--white);
+    font-weight: 500;
+}
+
+.btn-yellow {
+    background-color: var(--primary-yellow);
+    color: var(--black);
+    font-weight: 700;
+}
+
+/* Kolom Gambar Kanan */
+.hero-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 550px;
+}
+
+.hero-image .swoosh {
+    position: absolute;
+    width: 120%;
+    max-width: 1000px;
+    top: 100%;
+    right: -35%;
+    transform: translateY(-50%);
+}
+
+.hero-image .hand {
+    position: absolute;
+    width: 800%;
+    max-width: 1100px;
+    top: 55%;
+    right: -75%;
+    transform: translateY(-45%);
+    filter: drop-shadow(-11px 9px 31px rgba(0, 0, 0, 0.15));
+}
+
+/* ================================================== */
+/*                  VIDEO ADS SECTION                   */
+/* ================================================== */
+#video-ads {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#video-ads h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rasio 16:9 untuk video responsif */
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px; /* Sudut melengkung */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15); /* Bayangan yang bagus */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ================================================== */
+/*                  FEATURES SECTION                    */
+/* ================================================== */
+#features {
+    padding: 120px 0; /* Beri jarak yang cukup */
+    position: relative;
+    text-align: left; /* Reset dari sebelumnya */
+}
+
+/* Yellow Swoosh Background */
+#features::before {
+    content: '';
+    position: absolute;
+    background-image: url('assets/yellow-swoosh.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 120%; /* Buat lebih lebar dari container */
+    height: 100%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+#features h2 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+#features h2 span {
+    font-family: var(--font-secondary);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature-card {
+    width: 330px;
+    height: 358px;
+    padding: 40px 35px;
+    border-radius: 40px;
+    background-color: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1); /* <-- INI DIA KODENYA */
+}
+
+.feature-card.grey {
+    background-color: var(--light-grey);
+}
+
+.feature-card img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 2.0rem; /* 40px */
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.feature-card p {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.5;
+}
+
+
+/* ================================================== */
+/*                   USE CASE SECTION                   */
+/* ================================================== */
+#use-case {
+    padding: 80px 0;
+}
+
+.use-case-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.use-case-left {
+    flex-basis: 565px;
+    flex-shrink: 0;
+}
+
+.use-case-right {
+    flex: 1;
+    padding-top: 130px; /* Jarak atas sesuai acuan */
+}
+
+.use-case-left h2, .use-case-right h2 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.use-case-left h2 span {
+    font-family: var(--font-secondary);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.use-case-image-box {
+    background-color: var(--light-blue);
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.use-case-image-box img {
+    width: 100%;
+    border-radius: 30px;
+    display: block;
+}
+
+.use-case-image-box p {
+    margin-top: 20px;
+    font-size: 0.9375rem; /* 15px */
+    margin-bottom: 20px;
+}
+
+.store-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.store-btn {
+    width: 399px;
+    height: 149px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    border-radius: 40px;
+    background: var(--white);
+    box-shadow: 0px 11px 24px rgba(0, 0, 0, 0.10);
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+.store-btn:hover {
+    transform: scale(1.02);
+}
+
+.store-btn img {
+    height: 95px;
+    width: auto;
+    margin-right: 20px;
+}
+.tiktokshop img {
+    height: 100px;
+}
+
+.store-btn span {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 600;
+}
+
+.tokopedia {
+    border: 2px solid var(--tokopedia-green);
+    color: var(--tokopedia-green);
+}
+
+.tiktokshop {
+    border: 2px solid var(--tiktok-red);
+    color: var(--tiktok-red);
+}
+
+
+/* ================================================== */
+/*                        FOOTER                        */
+/* ================================================== */
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 60px 0;
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-left h2 {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.footer-left h2 span {
+    text-decoration: underline;
+}
+
+.footer-right {
+    display: flex;
+    gap: 80px;
+    flex-basis: 60%;
+}
+
+.footer-info {
+    flex: 1;
+}
+
+.footer-info strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.625rem; /* 10px */
+    font-weight: 600;
+}
+
+.footer-info p {
+    color: #ccc;
+    font-size: 0.625rem; /* 10px */
+    line-height: 1.5;
+}
+
+
+/* ================================================== */
+/*                  RESPONSIVE DESIGN                   */
+/* ================================================== */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 40px;
+    }
+    .features-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Hero */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        flex-basis: auto;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-image {
+        margin-top: 40px;
+        width: 100%;
+        min-height: 400px;
+    }
+    .hero-text h1 span:first-child { font-size: 4rem; }
+    .hero-text h1 span:last-child { font-size: 3.5rem; }
+
+    /* Features */
+    #features {
+        text-align: center;
+    }
+
+    /* Use Case */
+    .use-case-content {
+        flex-direction: column;
+    }
+    .use-case-right {
+        padding-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-right {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    .hero-text h1 span:first-child { font-size: 3rem; }
+    .hero-text h1 span:last-child { font-size: 2.5rem; }
+
+    .features-container {
+        gap: 20px;
+    }
+    .feature-card {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+    .store-btn {
+        width: 100%;
+        max-width: 399px;
+        height: auto;
+        padding: 20px;
+    }
+    .store-btn span {
+        font-size: 1.8rem;
+    }
+    .store-btn img {
+        height: 70px;
+    }
+}
